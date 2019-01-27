@@ -97,10 +97,10 @@ write.table(sil_matrix,"./Results/Silhouette_coef.txt",row.names = F)
 sil_com<-data.frame(sli_coef=c(sil_BUSseq,sil_MNN,sil_ZINBW,sil_Seurat),
                     method=factor(rep(c("BUSseq","MNN","ZINB-WaVE","Seurat"),each=N)))
 
-png("./Image/Other/violin_plot_of_Silhouette_coef.png",width = 720, height = 960)
+png("./Image/Other/violin_plot_of_Silhouette_coef.png",width = 960, height = 720)
 p <- ggplot(sil_com, aes(x=method, y=sli_coef,fill=method)) + 
   geom_violin() + xlab(NULL) + ylab(NULL)+theme_bw() +
-  theme(text = element_text(size=32),axis.text.x =element_text(size=24), axis.text.y = element_text(size =24),panel.border = element_blank(),panel.grid.major = element_blank(),
+  theme(text = element_text(size=48),axis.text.x =element_text(size=32), axis.text.y = element_text(size =32),panel.border = element_blank(),panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
 p
 dev.off()
