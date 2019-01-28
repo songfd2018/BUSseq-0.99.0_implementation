@@ -10,7 +10,6 @@ set.seed(12345)
 ########################
 # Working directory
 # setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
-# setwd("/scratch/student/s1155082896/scRNA/github_test/Hemat")
 
 # Loading pancreas count data
 load("./RawCountData/pancreas_countdata.RData")

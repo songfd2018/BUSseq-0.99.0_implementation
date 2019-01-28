@@ -7,7 +7,7 @@ library(BUSseq)
 # Load Pancreas Data #
 ######################
 # Working directory
-setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
+# setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
 
 # Loading pancreas count data
 load("./RawCountData/pancreas_countdata.RData")

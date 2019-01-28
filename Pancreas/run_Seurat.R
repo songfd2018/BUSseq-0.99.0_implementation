@@ -9,7 +9,7 @@ set.seed(12345)
 # Load Pancreas Data #
 ######################
 # Working directory
-setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
+# setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
 
 
 # Loading the file name list of all simulation count data

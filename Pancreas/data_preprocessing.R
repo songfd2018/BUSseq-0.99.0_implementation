@@ -13,7 +13,7 @@ library(SingleCellExperiment)
 rm(list=ls())
 
 # Setting the working directory
-# setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
+setwd("D://Data_Set/BUSseq/BUSseq_implementation-master/Pancreas")
 
 if(!dir.exists("Data")){
   dir.create("Data")
@@ -24,6 +24,7 @@ if(!dir.exists("Data")){
 ##############
 # Download file from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81076
 gse81076 <- './RawData/GSE81076_D2_3_7_10_17.txt.gz'
+if (!file.exists(gse81076)) { download.file("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81076/suppl/GSE81076_D2_3_7_10_17.txt.gz", gse81076) }
 gse81076.df <- read.table(gse81076, sep='\t', h=T, stringsAsFactors=F)
 gse81076.ndim <- dim(gse81076.df)[2]
 
@@ -111,7 +112,7 @@ gc()
 
 # Download file from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE85241
 gse85241 <- './RawData/GSE85241_cellsystems_dataset_4donors_updated.csv'
-
+if (!file.exists(gse85241)) { download.file("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE85nnn/GSE85241/suppl/GSE85241_cellsystems_dataset_4donors_updated.csv.gz", gse85241) }
 gse85241.df <- read.table(gse85241, sep='\t', h=T, stringsAsFactors=F)
 gse85241.df$gene_id <- rownames(gse85241.df)
 
@@ -296,8 +297,19 @@ gc()
 
 # the download file contains columns of RPKM & counts
 # need to pull out just the integer gene count columns
+# Please refer to https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-5061/ 
+
+# need to unzip
 emtab5061 <- "./RawData/pancreas_refseq_rpkms_counts_3514sc.txt"
-emtab.df <- read.table(emtab5061, sep="\t", stringsAsFactors = F)
+if(!file.exists(emtab5061)) {
+  emtab_combined <- "./RawData/EMTAB5061_rpkm_counts.txt.zip"
+  if(!file.exists(emtab_combined)){ download.file("https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-5061/files/E-MTAB-5061.processed.1.zip",
+                                                  emtab_combined)}
+  unzip(emtab_combined, exdir = "./RawData")
+}
+
+emtab.df <- read.table(emtab5061,
+                       h=FALSE, sep="\t", stringsAsFactors=F)
 
 col.names <- unlist(read.table(emtab5061,
                                h=FALSE, sep="\t", stringsAsFactors=F, comment.char="", nrows = 1))
@@ -1010,7 +1022,6 @@ meta3<-cbind(meta3,library_id)
 ###############
 # do a bit of tidying to make sure expression matrices are all conformable and
 # only contain data with cell type assignments
-
 # explicitly read in the study data
 datah4 <- read.table("./Data/E-MTAB-5061_SFnorm.tsv",
                      h=TRUE, sep="\t", stringsAsFactors=FALSE)

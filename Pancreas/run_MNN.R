@@ -9,8 +9,7 @@ set.seed(12345)
 # Load Simulation Data #
 ########################
 # Working directory
-setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
-# setwd("/scratch/student/s1155082896/scRNA/github_test/Hemat")
+# setwd("G:/scRNA/Journal/Github_reproduce/Human_Pancreas")
 
 # Loading the file name list of all pancreas count data
 load("./RawCountData/pancreas_countdata.RData")
@@ -62,10 +61,6 @@ t.mnn <- t(X.mnn)
 mnn.out.fast <- do.call(fastMNN, c(log_data_MNN, list(k=20, d=50, approximate=TRUE)))
 dim(mnn.out.fast$corrected)
 mnn.out.fast$batch@values <- paste0("Batch",1:B)
-
-time_spent <- end.time-start.time
-print(time_spent)
-
 
 omat <- do.call(cbind, log_data_MNN)
 sce <- SingleCellExperiment(list(logcounts=omat))
