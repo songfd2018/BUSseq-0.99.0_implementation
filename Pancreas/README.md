@@ -1,4 +1,4 @@
-#Generate the Figures of Pancreas Study
+# Generate the Figures of Pancreas Study
 
 This folder contains scripts that generate results for the human pancreas study, including Fig 6, in the manuscript. To reproduce all the results, please
 
