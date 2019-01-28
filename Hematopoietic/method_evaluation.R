@@ -8,7 +8,6 @@ library(Rtsne)
 ###################
 # Working directory
 # setwd("G:/scRNA/Journal/Github_reproduce/Mouse_Hematopoietic")
-
 load("./Workspace/BUSseq_workspace.RData")
 load("./Workspace/MNN_workspace.RData")
 load("./Workspace/Seurat_workspace.RData")

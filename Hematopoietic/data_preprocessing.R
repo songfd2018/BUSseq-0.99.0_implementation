@@ -8,12 +8,16 @@
 rm(list=ls())
 
 # Setting the working directory
-# setwd("G:/scRNA/Journal/Github_reproduce/Mouse_Hematopoietic")
+# setwd("D://Data_Set/BUSseq/BUSseq_implementation-master/Hematopoietic")
 
+##############
+## GSE81682 ## #<<<<<<<-------This is newly added.
+##############
 # Downloading and reading the counts, metadata of Nestorowa et al. 2016
 
 # Downloading from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81682
-fname <- "./RawData/GSE81682_HTSeq_counts.txt.gz" 
+fname <- "./RawData/GSE81682_HTSeq_counts.txt.gz"
+if (!file.exists(fname)) { download.file("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE81nnn/GSE81682/suppl/GSE81682_HTSeq_counts.txt.gz", fname) }
 dataF <- read.table(fname, header=TRUE, row.names=1, check.names=FALSE)
 dataF <- as.matrix(dataF)
 dim(dataF)
@@ -45,10 +49,14 @@ gc()
 ##########################################
 ##########################################
 
+##############
+## GSE72857 ## #<<<<<<<-------This is newly added.
+##############
 # Download and read the counts and metadata of Paul et al. 2015
 
 # Download from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE72857
 fname <- "./RawData/GSE72857_umitab.txt.gz"
+if (!file.exists(fname)) { download.file("ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE72nnn/GSE72857/suppl/GSE72857_umitab.txt.gz", fname) }
 dataA <- read.table(fname, header=TRUE, row.names=1)
 metaA <- read.csv2("./RawData/MAP.csv",sep=",",stringsAsFactors = FALSE, head=TRUE, row.names=1)
 dim(dataA)

@@ -62,10 +62,6 @@ dim(mnn.out.fast$corrected)
 mnn.out.fast$batch@values <- paste0("Batch",1:B)
 mnn.out.fast$pairs
 
-time_spent <- end.time-start.time
-print(time_spent)
-
-
 omat <- do.call(cbind, log_data_MNN)
 sce <- SingleCellExperiment(list(logcounts=omat))
 reducedDim(sce, "MNN") <- mnn.out.fast$corrected
