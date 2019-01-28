@@ -11,7 +11,6 @@ source_url("https://raw.githubusercontent.com/obigriffith/biostar-tutorials/mast
 #########################
 # Working directory
 # setwd("G:/scRNA/Journal/Github_reproduce/Simulation")
-
 load("./Workspace/BUSseq_workspace.RData")
 
 ######################################################################

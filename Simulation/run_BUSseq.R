@@ -1,10 +1,7 @@
-#Apply BUSseq to the simulation study and plot the heatmap.
+#Apply BUSseq to the simulation study.
 
 rm(list=ls())
 library(BUSseq)
-#library(RColorBrewer)
-#library(Rtsne)
-
 
 ########################
 # Load Simulation Data #

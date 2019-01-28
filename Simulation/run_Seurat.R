@@ -1,4 +1,4 @@
-# Apply Seurat to the simulation study and plot the heatmap.
+# Apply Seurat to the simulation study.
 # Referring to https://satijalab.org/seurat/immune_alignment.html
 rm(list=ls())
 library(Seurat)

@@ -2,7 +2,7 @@ rm(list=ls())
 library("devtools")
 source_url("https://raw.githubusercontent.com/obigriffith/biostar-tutorials/master/Heatmaps/heatmap.3.R")
 
-# setwd("G:/scRNA/Journal/Github_reproduce/Simulation") # temp
+# setwd("G:/scRNA/Journal/Github_reproduce/Simulation") 
 
 set.seed(12356)
 ################################

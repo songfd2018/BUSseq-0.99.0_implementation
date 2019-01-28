@@ -1,4 +1,4 @@
-# Apply ZINB-WaVE to the simulation study and plot the heatmap.
+# Apply ZINB-WaVE to the simulation study.
 # Referring to https://github.com/drisso/zinb_analysis/blob/master/real_data/allen_covariates_1000.Rmd
 rm(list=ls())
 library(zinbwave)
