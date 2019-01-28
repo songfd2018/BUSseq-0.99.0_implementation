@@ -77,7 +77,6 @@ spikes <- grepl(rownames(gse81076.df[keep_genes, ]),
 
 sce <- SingleCellExperiment(list(counts = as.matrix(gse81076.nz)))
 sce <- calculateQCMetrics(sce, feature_controls=list(Spikes=spikes))
-isSpike(sce) <- spikes
 
 clusters <- quickCluster(sce, get.spikes=TRUE, min.size=120)
 sce <- computeSumFactors(sce, sizes=c(10, 20, 40, 60), positive=T,
@@ -167,7 +166,6 @@ spikes <- grepl(rownames(gse85241.df[keep_genes, ]),
                 pattern='ERCC')
 sce <- SingleCellExperiment(list(counts = as.matrix(gse85241.nz)))
 sce <- calculateQCMetrics(sce, feature_controls=list(Spikes=spikes))
-isSpike(sce) <- spikes
 
 clusters <- quickCluster(sce, get.spikes=TRUE, min.size=120)
 sce <- computeSumFactors(sce, sizes=c(10, 20, 40, 60), positive=T,
@@ -369,7 +367,6 @@ emtab5061.nz <- apply(emtab5061.nz, 2, as.integer)
 spikes <- grepl(x=rownames(emtab5061.df[keep_genes, ]), pattern="ERCC")
 sce <- SingleCellExperiment(list(counts = as.matrix(emtab5061.nz)))
 sce <- calculateQCMetrics(sce, feature_controls=list(Spikes=spikes))
-isSpike(sce) <- spikes
 
 clusters <- quickCluster(sce, min.size=120)
 sce <- computeSumFactors(sce, sizes=c(10, 20, 40, 60), positive=T,
